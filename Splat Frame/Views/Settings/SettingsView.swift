@@ -124,12 +124,7 @@ struct SettingsView: View {
             recorder.stopRecording { previewVC, error in
                 appState.isRecording = false
                 guard let previewVC else { return }
-                previewVC.previewControllerDelegate = RecordingDismissDelegate.shared
-                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                   let rootVC = windowScene.windows.first?.rootViewController {
-                    previewVC.modalPresentationStyle = .fullScreen
-                    rootVC.present(previewVC, animated: true)
-                }
+                appState.recordingPreviewVC = previewVC
             }
         } else {
             recorder.isMicrophoneEnabled = false

@@ -134,6 +134,16 @@ struct CubeModeView: View {
             CubeFacePickerSheet()
                 .presentationDetents([.medium])
         }
+        .sheet(isPresented: Binding(
+            get: { appState.recordingPreviewVC != nil },
+            set: { if !$0 { appState.recordingPreviewVC = nil } }
+        )) {
+            if let previewVC = appState.recordingPreviewVC {
+                RecordingPreviewSheet(previewController: previewVC)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.visible)
+            }
+        }
         .onAppear {
             pinchStartScale = appState.zoomScale
             appState.cubeController.setRoomShape(isRectangleMode: appState.isRectangleMode)
@@ -281,12 +291,7 @@ struct CubeModeView: View {
                 appState.isRecording = false
             }
             guard let previewVC else { return }
-            previewVC.previewControllerDelegate = RecordingDismissDelegate.shared
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let rootVC = windowScene.windows.first?.rootViewController {
-                previewVC.modalPresentationStyle = .fullScreen
-                rootVC.present(previewVC, animated: true)
-            }
+            appState.recordingPreviewVC = previewVC
         }
     }
 

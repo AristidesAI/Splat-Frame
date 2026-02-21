@@ -136,6 +136,20 @@ top    = ( halfScreenHeight - headY) × nearOverDist
 
 <br>
 
+## Open Source Libraries
+
+Splat Frame is built on top of these open source packages:
+
+| Package | Description | Link |
+|---|---|---|
+| **MetalSplatter** | High-performance Gaussian splat renderer for Metal. Provides `SplatRenderer`, `SplatChunk`, and scene file I/O. | [scier/MetalSplatter](https://github.com/scier/MetalSplatter) |
+| **spz-swift** | Swift bindings for the `.spz` compressed splat format — fast loading of Gaussian splat files on Apple platforms. | [scier/spz-swift](https://github.com/scier/spz-swift) |
+| **swift-argument-parser** | Apple's library for straightforward, type-safe command-line argument parsing in Swift. Transitive dependency of MetalSplatter. | [apple/swift-argument-parser](https://github.com/apple/swift-argument-parser) |
+
+All packages are managed via **Swift Package Manager**.
+
+<br>
+
 ## License
 
 This project is open source. See the [LICENSE](LICENSE) file for details.

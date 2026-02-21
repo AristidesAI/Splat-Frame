@@ -1,4 +1,5 @@
 import Observation
+import ReplayKit
 import SwiftUI
 
 @Observable
@@ -10,6 +11,9 @@ final class AppState {
     var selectedTab: Tab = .cube
     var showCalibrationOverlay = false
     var isRecording = false
+
+    /// Holds the recording preview controller to present as a sheet
+    var recordingPreviewVC: RPPreviewViewController?
 
     /// Toggles portrait-rectangle room shape
     var isRectangleMode = false
