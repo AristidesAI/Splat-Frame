@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import Symbols
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "eye")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Splat Frame")
         }
         .padding()
     }

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splat Frame — A Window Into 3D Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Splat%20Frame/Assets.xcassets/AppIcon.appiconset/splat-iOS-Default-1024x1024@1x.png">
+    <meta name="description" content="Splat Frame turns your iPhone into a window to another dimension using real-time head tracking and 3D Gaussian splat rendering.">
+    <meta name="theme-color" content="#0a0a0f">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="parallax-bg">
+        <div class="grid-plane"></div>
+        <div class="particle" style="--x: 15%; --y: 20%; --delay: 0s; --size: 3px;"></div>
+        <div class="particle" style="--x: 85%; --y: 35%; --delay: 1.2s; --size: 4px;"></div>
+        <div class="particle" style="--x: 45%; --y: 70%; --delay: 0.6s; --size: 2px;"></div>
+        <div class="particle" style="--x: 70%; --y: 15%; --delay: 1.8s; --size: 5px;"></div>
+        <div class="particle" style="--x: 25%; --y: 80%; --delay: 0.3s; --size: 3px;"></div>
+        <div class="particle" style="--x: 55%; --y: 45%; --delay: 2.1s; --size: 4px;"></div>
+        <div class="particle" style="--x: 90%; --y: 65%; --delay: 0.9s; --size: 2px;"></div>
+        <div class="particle" style="--x: 10%; --y: 55%; --delay: 1.5s; --size: 3px;"></div>
+        <div class="particle" style="--x: 35%; --y: 90%; --delay: 2.4s; --size: 4px;"></div>
+        <div class="particle" style="--x: 60%; --y: 10%; --delay: 0.4s; --size: 5px;"></div>
+        <div class="particle" style="--x: 78%; --y: 88%; --delay: 1.1s; --size: 2px;"></div>
+        <div class="particle" style="--x: 42%; --y: 30%; --delay: 1.7s; --size: 3px;"></div>
+    </div>
+
+    <!-- Depth portal effect -->
+    <div class="portal-ring"></div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="app-icon-wrapper">
+                <div class="icon-glow"></div>
+                <img
+                    src="Splat%20Frame/Assets.xcassets/AppIcon.appiconset/splat-iOS-Default-1024x1024@1x.png"
+                    alt="Splat Frame App Icon"
+                    class="app-icon"
+                >
+            </div>
+            <h1 class="app-title">
+                <span class="title-word">Splat</span>
+                <span class="title-word accent">Frame</span>
+            </h1>
+            <p class="tagline">A Window Into 3D Space</p>
+            <p class="subtitle">
+                Turn your iPhone into a portal. Move your head and watch the world shift — real-time
+                parallax depth powered by face tracking.
+            </p>
+            <a href="#" class="download-btn" aria-label="Download on the App Store (coming soon)">
+                <svg class="apple-logo" viewBox="0 0 17 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.545 10.239c-.022-2.393 1.953-3.543 2.041-3.599-1.111-1.625-2.842-1.848-3.458-1.873-1.473-.149-2.876.867-3.624.867-.747 0-1.904-.845-3.127-.823-1.609.024-3.093.936-3.922 2.378-1.672 2.901-.428 7.199 1.202 9.553.796 1.153 1.746 2.447 2.993 2.401 1.201-.048 1.654-.776 3.106-.776 1.452 0 1.858.776 3.127.752 1.293-.022 2.112-1.174 2.904-2.33.915-1.337 1.292-2.631 1.315-2.699-.029-.013-2.523-.968-2.548-3.841l-.009-.01z"/>
+                    <path d="M11.151 3.292c.662-.802 1.108-1.916.987-3.025-0.954.039-2.11.636-2.794 1.438-.613.71-1.15 1.843-1.005 2.93 1.064.083 2.15-.541 2.812-1.343z"/>
+                </svg>
+                <div class="btn-text">
+                    <span class="btn-small">Coming Soon on the</span>
+                    <span class="btn-large">App Store</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <h2 class="section-title">Two Immersive Experiences</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="card-depth-layer"></div>
+                    <div class="feature-icon">&#9632;</div>
+                    <h3>Parallax Cube</h3>
+                    <p>
+                        Place your photos and videos on the 5 inner faces of a 3D room. Move your head
+                        and watch them come alive with natural depth and perspective.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-depth-layer"></div>
+                    <div class="feature-icon">&#10022;</div>
+                    <h3>Gaussian Splat Viewer</h3>
+                    <p>
+                        View photorealistic 3D Gaussian splat captures in full-screen with real-time
+                        head-tracked camera movement. Like stepping into the scene.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-depth-layer"></div>
+                    <div class="feature-icon">&#9881;</div>
+                    <h3>Discover & Download</h3>
+                    <p>
+                        Browse a curated feed of 3D splat scenes from the community. Tap to preview,
+                        download your favorites, and experience them in the parallax viewer.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Face Tracking</h3>
+                        <p>The TrueDepth camera tracks your head position in 3D space using ARKit — 60 times per second.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Off-Axis Projection</h3>
+                        <p>Your head position drives an asymmetric frustum — the same math used in real 3D window displays.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Rendered in Real-Time</h3>
+                        <p>Metal GPU rendering at 60fps. The perspective shifts naturally as you move, creating a convincing portal illusion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech highlights -->
+        <section class="tech">
+            <h2 class="section-title">Built With</h2>
+            <div class="tech-grid">
+                <div class="tech-pill">ARKit</div>
+                <div class="tech-pill">Metal</div>
+                <div class="tech-pill">SceneKit</div>
+                <div class="tech-pill">MetalSplatter</div>
+                <div class="tech-pill">SwiftUI</div>
+                <div class="tech-pill">Off-Axis Projection</div>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section class="requirements">
+            <p>Requires iPhone X or later with TrueDepth front-facing camera.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Splat Frame</p>
+    </footer>
+
+    <script>
+        // Subtle mouse-driven parallax for the portal ring and cards
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+            const ring = document.querySelector('.portal-ring');
+            if (ring) {
+                ring.style.transform = `translate(calc(-50% + ${x * 30}px), calc(-50% + ${y * 30}px))`;
+            }
+
+            document.querySelectorAll('.feature-card').forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const cx = (e.clientX - rect.left) / rect.width - 0.5;
+                const cy = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(800px) rotateY(${cx * 6}deg) rotateX(${-cy * 6}deg)`;
+            });
+        });
+
+        // Reset card transforms on mouse leave
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

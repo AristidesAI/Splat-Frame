@@ -1,0 +1,453 @@
+/* ── Reset & Base ────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --border: rgba(255, 255, 255, 0.06);
+    --text: #e8e8ec;
+    --text-dim: #8a8a9a;
+    --accent: #6e5cff;
+    --accent-glow: rgba(110, 92, 255, 0.4);
+    --portal: rgba(110, 92, 255, 0.08);
+    --card-bg: rgba(18, 18, 28, 0.7);
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ── Animated Background ────────────────────────── */
+
+.parallax-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.grid-plane {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(110, 92, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 92, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    animation: grid-drift 20s linear infinite;
+}
+
+@keyframes grid-drift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+}
+
+.particle {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-float 6s ease-in-out var(--delay) infinite;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+@keyframes particle-float {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+    20%      { opacity: 0.7; }
+    50%      { opacity: 0.4; transform: translateY(-40px) scale(1.3); }
+    80%      { opacity: 0.6; }
+}
+
+/* ── Portal Ring ────────────────────────────────── */
+
+.portal-ring {
+    position: fixed;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(110, 92, 255, 0.1);
+    box-shadow:
+        0 0 80px rgba(110, 92, 255, 0.06),
+        inset 0 0 80px rgba(110, 92, 255, 0.04);
+    pointer-events: none;
+    z-index: 0;
+    transition: transform 0.3s ease-out;
+    animation: portal-pulse 4s ease-in-out infinite;
+}
+
+@keyframes portal-pulse {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 0.7; }
+}
+
+/* ── Main ───────────────────────────────────────── */
+
+main {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Hero ───────────────────────────────────────── */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.app-icon-wrapper {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.icon-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 28%;
+    background: var(--accent-glow);
+    filter: blur(40px);
+    opacity: 0.5;
+    animation: icon-breathe 3s ease-in-out infinite;
+}
+
+@keyframes icon-breathe {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%      { opacity: 0.65; transform: scale(1.05); }
+}
+
+.app-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 28%;
+    position: relative;
+    z-index: 1;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.app-title {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+.title-word {
+    display: inline-block;
+}
+
+.title-word.accent {
+    background: linear-gradient(135deg, #6e5cff 0%, #a78bfa 50%, #6e5cff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% center; }
+    50%      { background-position: 100% center; }
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+/* ── Download Button ────────────────────────────── */
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #000;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
+}
+
+.apple-logo {
+    width: 22px;
+    height: 26px;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.btn-small {
+    font-size: 0.65rem;
+    letter-spacing: 0.02em;
+}
+
+.btn-large {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* ── Section Titles ─────────────────────────────── */
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+}
+
+/* ── Features ───────────────────────────────────── */
+
+.features {
+    padding: 80px 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.card-depth-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at 50% 0%, var(--portal), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.feature-card:hover .card-depth-layer {
+    opacity: 1;
+}
+
+.feature-card:hover {
+    box-shadow: 0 16px 48px rgba(110, 92, 255, 0.1);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+}
+
+/* ── How It Works ───────────────────────────────── */
+
+.how-it-works {
+    padding: 80px 0;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 480px;
+    width: 100%;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.step-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.step-connector {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin-left: 21px;
+    opacity: 0.4;
+}
+
+/* ── Tech ───────────────────────────────────────── */
+
+.tech {
+    padding: 80px 0;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.tech-pill {
+    padding: 10px 22px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.tech-pill:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ── Requirements ───────────────────────────────── */
+
+.requirements {
+    text-align: center;
+    padding: 40px 0 80px;
+}
+
+.requirements p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* ── Footer ─────────────────────────────────────── */
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 80px 0 60px;
+    }
+
+    .app-icon {
+        width: 110px;
+        height: 110px;
+    }
+
+    .portal-ring {
+        width: 350px;
+        height: 350px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        gap: 16px;
+    }
+}
