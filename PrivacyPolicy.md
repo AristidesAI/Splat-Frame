@@ -16,6 +16,19 @@ We do not collect personal information, usage analytics, identifiers, or locatio
 ## On-Device Processing
 Any content you provide to the app (for example, images, video, text, or other files) is processed locally on your device. That content is not transmitted to us.
 
+## Face Data and TrueDepth Camera Information
+
+Splat Frame uses the iPhone’s TrueDepth camera to track your head position in real time. The app collects only the minimum data required for this feature: your head’s position (x, y, z coordinates) and orientation, as provided by Apple’s ARKit Face Tracking API. No facial features, biometric identifiers, or raw camera images are stored or processed.
+
+### Purpose of Collection:
+This information is used solely to create a 3D “window” effect for splat videos and interactive cube scenes, adjusting the perspective based on your head movement. The data is processed on-device in real time and is never used for identification, authentication, or any other purpose.
+
+### Data Sharing and Storage:
+Face tracking data is not shared with third parties and is not stored, transmitted, or retained beyond the duration of your session. All processing occurs locally on your device.
+
+### Disclosure and Retention:
+Splat Frame does not retain, export, or disclose any face data. No face data leaves your device, and no face data is accessible to the developer or any external party
+
 ## Data Sharing
 We do not share your data with third parties because we do not collect it.
 
