@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/badge/Website-Splat%20Frame-6e5cff?style=for-the-badge&logo=safari&logoColor=white" alt="Website">
   </a>
   &nbsp;
-  <a href="#">
+  <a href="https://apps.apple.com/us/app/splat-frame/id6759489794">
     <img src="https://img.shields.io/badge/Download_on_the-App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white" alt="App Store">
   </a>
 </p>
@@ -47,19 +47,19 @@ Place your **photos and videos** from your photo library onto the 5 inner walls 
 ## The Effect
 
 ```
-         ┌─────────────────────┐
-         │     ╔═══════════╗   │
-         │    ╱│  ceiling  │╲  │
-         │   ╱ ╚═══════════╝ ╲ │
-         │  │left│  back  │right│
-         │   ╲ ╔═══════════╗ ╱ │
-         │    ╲│   floor   │╱  │
-         │     ╚═══════════╝   │
-         └─────────────────────┘
-             Your iPhone Screen
+          ┌───────────────���─────┐
+          │     ╔═══════════╗   │
+          │    ╱│  ceiling  │╲  │
+          │   ╱ ╚═══════════╝ ╲ │
+          │  │left│  back  │right│
+          │   ╲ ╔═══════════╗ ╱ │
+          │    ╲│   floor   │╱  │
+          │     ╚═══════════╝   │
+          └─────────────────────┘
+              Your iPhone Screen
 
-     Move your head → perspective shifts
-     Like looking through a real window
+      Move your head → perspective shifts
+      Like looking through a real window
 ```
 
 <br>
@@ -92,13 +92,13 @@ Place your **photos and videos** from your photo library onto the 5 inner walls 
 │  (x, y, z)        │    │  (like a real        │    │  override        │
 │                    │    │   3D window)         │    │  @ 60fps Metal   │
 └──────────────────┘    └────────────────────┘    └──────────────────┘
-         ▲                                                  │
-         │              ┌────────────────────┐              │
-         └──────────────│  Gyroscope +        │◀─────────── │
-                        │  Motion Effects    │
-                        │  (wobble, inertia, │
-                        │   bounce)           │
-                        └────────────────────┘
+          ▲                                                  │
+          │              ┌────────────────────┐              │
+          └──────────────│  Gyroscope +        │◀─────────── │
+                         │  Motion Effects    │
+                         │  (wobble, inertia, │
+                         │   bounce)           │
+                         └────────────────────┘
 ```
 
 The parallax illusion uses an **asymmetric frustum** — the projection shifts inversely to your head movement:
@@ -161,7 +161,7 @@ This project is open source. See the [LICENSE](LICENSE) file for details.
 <p align="center">
   <a href="https://aristidesai.github.io/Splat-Frame/">Website</a>
   &nbsp;·&nbsp;
-  <a href="#">App Store</a>
+  <a href="https://apps.apple.com/us/app/splat-frame/id6759489794">App Store</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/aristidesai/Splat-Frame/issues">Report Bug</a>
   &nbsp;·&nbsp;
